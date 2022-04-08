@@ -1,0 +1,27 @@
+{
+  "extends": ["airbnb", "airbnb-typescript"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "max-len": ["error", { "code": 220 }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["webpack.config.ts"] }],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
+    ],
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+    "react/prop-types": ["off"],
+    "import/no-cycle": "off",
+    "react/require-default-props": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "no-underscore-dangle": ["off"],
+    "class-methods-use-this": "off",
+    "linebreak-style": [2],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
+  }
+}
