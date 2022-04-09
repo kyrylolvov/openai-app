@@ -1,19 +1,8 @@
-export const MissingInfoHeader: CSSWithTheme = () => ({
+export const MainContainer: CSSWithTheme = () => ({
   background: 'var(--background-main)',
-  height: '100vh',
+  height: 'auto',
   width: '100vw',
+  transition: 'all 0.3s',
 });
 
-export const MissingInfoText: CSSWithTheme = (theme) => ({
-  fontSize: '18px',
-  color: '#929292',
-  lineHeight: '28px',
-
-  [theme.breakpoints.down('md')]: {
-    marginTop: '8px',
-    fontWeight: 400,
-    fontSize: '16px',
-    lineHeight: '130%',
-    padding: '0 30px',
-  },
-});
+export default MainContainer;

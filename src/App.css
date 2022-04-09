@@ -1,6 +1,7 @@
 :root {
   --background-main: #f4f6f8;
   --background-secondary: #ffffff;
+  --background-header: #5964e0;
 
   --typograpgy-main: #19202d;
   --typograpgy-secondary: #6e8098;
@@ -12,11 +13,14 @@
 
   --checkbox-unchecked: #e7e8e9;
   --checkbox-checked: #5964e0;
+
+  --search-borer: #e2e6ea;
 }
 
 [data-theme='dark'] {
   --background-main: #121721;
   --background-secondary: #19202d;
+  --background-header: #5964e0;
 
   --typograpgy-main: #ffffff;
   --typograpgy-secondary: #6e8098;
@@ -28,8 +32,24 @@
 
   --checkbox-unchecked: #313743;
   --checkbox-checked: #5964e0;
+
+  --search-borer: #2a3342;
 }
 
-body {
+@font-face {
+  font-family: 'KumbhSans';
+  src: url('./assets/fonts/KumbhSans-Regular.ttf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'KumbhSans';
+  src: url('./assets/fonts/KumbhSans-Bold.ttf') format('opentype');
+  font-weight: 700;
+}
+
+body,
+html {
   margin: 0;
+  font-size: 16px;
 }

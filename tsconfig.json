@@ -23,6 +23,7 @@
   },
   "include": [
     "src",
-    "craco.config.js"
+    "craco.config.js",
+    "src/@types/custom.d.ts"
   ]
 }

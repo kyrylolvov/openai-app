@@ -9,11 +9,8 @@ import './App.css';
 const theme = createTheme({
   typography: {
     allVariants: {
-      fontFamily: 'SFCompactDisplay',
+      fontFamily: 'KumbhSans',
     },
-  },
-  palette: {
-    mode: 'light',
   },
 });
 

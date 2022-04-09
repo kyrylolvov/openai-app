@@ -1,8 +1,12 @@
 import React from 'react';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import useLocalStorage from 'use-local-storage';
 
+import Header from '../components/Header/Header';
+
 import * as css from './css';
+import Search from '../components/Search/Search';
+import Cards from '../components/Cards/Cards';
 
 const Main: React.FC = () => {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -14,8 +18,10 @@ const Main: React.FC = () => {
   };
 
   return (
-    <Box css={css.MissingInfoHeader} data-theme={theme}>
-      <Button onClick={switchTheme}>Theme</Button>
+    <Box css={css.MainContainer} data-theme={theme}>
+      <Header switchTheme={switchTheme} isDarkTheme={theme === 'dark'} />
+      <Search />
+      <Cards />
     </Box>
   );
 };
