@@ -4,7 +4,6 @@ export const MainContainer: CSSWithTheme = () => ({
 });
 
 export const CardsContainer: CSSWithTheme = () => ({
-  backgroundColor: 'black',
   height: '50%',
 });
 
