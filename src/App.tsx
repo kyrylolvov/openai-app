@@ -8,24 +8,23 @@ import './App.css';
 
 const theme = createTheme({
   typography: {
+    h2: {
+      fontFamily: 'GreycliffCF',
+    },
     allVariants: {
-      fontFamily: 'KumbhSans',
+      fontFamily: 'Roboto',
     },
   },
 });
 
-const App = () => {
-  console.log('App');
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Main />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
-  );
-};
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </Router>
+  </ThemeProvider>
+);
 
 export default App;

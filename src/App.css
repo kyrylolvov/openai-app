@@ -1,55 +1,60 @@
 :root {
   --background-main: #f4f6f8;
   --background-secondary: #ffffff;
-  --background-header: #5964e0;
 
-  --typograpgy-main: #19202d;
-  --typograpgy-secondary: #6e8098;
-  --typograpgy-accent: #5964e0;
+  --typograghy-main: #19202d;
+  --typograghy-secondary: #6e8098;
 
-  --button-background: #5964e0;
-  --button-text-color: #ffffff;
-  --button-hover: #939bf4;
-
-  --checkbox-unchecked: #e7e8e9;
-  --checkbox-checked: #5964e0;
-
-  --search-borer: #e2e6ea;
+  --special-main: #ffec65;
+  --button-color: #3c47e9;
+  --input-color: #3c47e9;
 }
 
 [data-theme='dark'] {
-  --background-main: #121721;
-  --background-secondary: #19202d;
-  --background-header: #5964e0;
+  --background-main: #100e1d;
+  --background-secondary: #1e213a;
 
-  --typograpgy-main: #ffffff;
-  --typograpgy-secondary: #6e8098;
-  --typograpgy-accent: #5964e0;
+  --typograghy-main: #e7e7eb;
+  --typograghy-secondary: #a09fb1;
 
-  --button-background: #5964e0;
-  --button-text-color: #ffffff;
-  --button-hover: #939bf4;
-
-  --checkbox-unchecked: #313743;
-  --checkbox-checked: #5964e0;
-
-  --search-borer: #2a3342;
+  --special-main: #ffec65;
+  --button-color: #3c47e9;
+  --input-color: #ffffff;
 }
 
 @font-face {
-  font-family: 'KumbhSans';
-  src: url('./assets/fonts/KumbhSans-Regular.ttf') format('opentype');
-  font-weight: 400;
+  font-family: 'GreycliffCF';
+  src: url('./assets/fonts/Greycliffcf-Demibold.otf') format('opentype');
+  font-weight: 600;
 }
 
 @font-face {
-  font-family: 'KumbhSans';
-  src: url('./assets/fonts/KumbhSans-Bold.ttf') format('opentype');
+  font-family: 'GreycliffCF';
+  src: url('./assets/fonts/Greycliffcf-Bold.otf') format('opentype');
   font-weight: 700;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('./assets/fonts/Greycliffcf-Extrabold.otf') format('opentype');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'GreycliffCF';
+  src: url('./assets/fonts/Greycliffcf-Heavy.otf') format('opentype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Regular.ttf') format('opentype');
+  font-weight: 400;
 }
 
 body,
 html {
   margin: 0;
   font-size: 16px;
+  font-family: 'Roboto', sans-serif;
 }

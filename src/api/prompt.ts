@@ -1,6 +1,6 @@
 import instance from './instance';
 
-const fetchOpenAi = async () => instance.post('/text-curie-001/completions', {
+const sendPrompt = async () => instance.post('/text-curie-001/completions', {
   prompt: 'Write a poem about a dog wearing skis',
   temperature: 0.5,
   max_tokens: 64,
@@ -9,4 +9,4 @@ const fetchOpenAi = async () => instance.post('/text-curie-001/completions', {
   presence_penalty: 0.0,
 });
 
-export default fetchOpenAi;
+export default sendPrompt;
