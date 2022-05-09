@@ -1,10 +1,12 @@
 import instance from './instance';
 
-const getJobs = async () => instance.get('/remote-jobs', {
-  params: {
-    limit: 5,
-    category: 'software-dev',
-  },
+const fetchOpenAi = async () => instance.post('/text-curie-001/completions', {
+  prompt: 'Write a poem about a dog wearing skis',
+  temperature: 0.5,
+  max_tokens: 64,
+  top_p: 1.0,
+  frequency_penalty: 0.0,
+  presence_penalty: 0.0,
 });
 
-export default getJobs;
+export default fetchOpenAi;
