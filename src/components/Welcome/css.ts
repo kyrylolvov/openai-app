@@ -1,13 +1,29 @@
 import backgroundQa from '../../assets/img/backgrounds/backgroundQa.png';
 
-export const WelcomeBox: CSSWithTheme = () => ({
-  width: '60vw',
-  margin: '48px auto 0 auto',
+export const WelcomeBox: CSSWithTheme = (theme) => ({
+  margin: '64px auto 0 auto',
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gridGap: '32px',
+  gap: '32px',
+  alignItems: 'center',
+
+  [theme.breakpoints.down('md')]: {
+    gridTemplateColumns: '1fr',
+    textAlign: 'center',
+    gridGap: '48px',
+    gap: '48px',
+  },
 });
 
-export const WelcomeTitle: CSSWithTheme = () => ({
+export const WelcomeTitle: CSSWithTheme = (theme) => ({
   fontWeight: 900,
   color: 'var(--typograghy-main)',
+
+  [theme.breakpoints.down(1150)]: {
+    fontSize: '44px',
+  },
+
 });
 
 export const WelcomeTextAccent: CSSWithTheme = () => ({
@@ -16,9 +32,14 @@ export const WelcomeTextAccent: CSSWithTheme = () => ({
   WebkitTextFillColor: 'transparent',
 });
 
-export const WelcomeParagraph: CSSWithTheme = () => ({
+export const WelcomeParagraph: CSSWithTheme = (theme) => ({
   marginTop: '24px',
+  fontSize: '14px',
   color: 'var(--typograghy-secondary)',
+
+  [theme.breakpoints.down(1150)]: {
+    fontSize: '12px',
+  },
 });
 
 export const IconBox: CSSWithTheme = () => ({
@@ -26,7 +47,6 @@ export const IconBox: CSSWithTheme = () => ({
   borderRadius: '6px',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center center',
   height: '56px',
   width: '56px',
   display: 'flex',
@@ -34,8 +54,30 @@ export const IconBox: CSSWithTheme = () => ({
   justifyContent: 'center',
 
   '& svg': {
-    fill: '#ffffff',
+    color: '#ffffff',
     height: '24px',
     width: '24px',
+  },
+});
+
+export const WelcomeIllustrationContainer: CSSWithTheme = (theme) => ({
+  display: 'flex',
+  justifyContent: 'flex-end',
+
+  [theme.breakpoints.down('md')]: {
+    justifyContent: 'center',
+  },
+});
+
+export const WelcomeIllustration: CSSWithTheme = (theme) => ({
+  width: '40vw',
+  maxHeight: '400px',
+
+  [theme.breakpoints.down('md')]: {
+    width: '70vw',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    width: '85vw',
   },
 });

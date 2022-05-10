@@ -1,25 +1,25 @@
 :root {
-  --background-main: #f4f6f8;
-  --background-secondary: #ffffff;
+  --background-main: #ffffff;
+  --background-secondary: #f8f9fa;
 
   --typograghy-main: #19202d;
   --typograghy-secondary: #6e8098;
 
-  --special-main: #ffec65;
-  --button-color: #3c47e9;
-  --input-color: #3c47e9;
+  --input-background: #ffffff;
+  --input-border: #cfd4d9;
+  --input-border-active: #5298e9;
 }
 
 [data-theme='dark'] {
-  --background-main: #100e1d;
-  --background-secondary: #1e213a;
+  --background-main: #141517;
+  --background-secondary: #25262b;
 
-  --typograghy-main: #e7e7eb;
+  --typograghy-main: #ffffff;
   --typograghy-secondary: #a09fb1;
 
-  --special-main: #ffec65;
-  --button-color: #3c47e9;
-  --input-color: #ffffff;
+  --input-background: #323741;
+  --input-border: transparent;
+  --input-border-active: transparent;
 }
 
 @font-face {

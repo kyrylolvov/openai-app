@@ -2,12 +2,15 @@ import React from 'react';
 import { Box } from '@mui/material';
 import useLocalStorage from 'use-local-storage';
 
+import { ReactComponent as WaveSeperator } from '../assets/img/svg/wave.svg';
+
 // import sendPrompt from '../api/prompt';
 // import { useAPI } from '../hooks/useApi';
 
 import * as css from './css';
 import Header from '../components/Header';
 import Welcome from '../components/Welcome';
+import TextField from '../components/Textfield';
 
 const Main: React.FC = () => {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -28,8 +31,18 @@ const Main: React.FC = () => {
 
   return (
     <Box css={css.MainContainer} data-theme={theme}>
-      <Header isDarkTheme={theme === 'dark'} switchTheme={switchTheme} />
-      <Welcome />
+      <Box css={css.TopContainer}>
+        <Box css={css.TopContainerInside}>
+          <Header isDarkTheme={theme === 'dark'} switchTheme={switchTheme} />
+          <Welcome />
+        </Box>
+        <Box css={css.Seperator}>
+          <WaveSeperator />
+        </Box>
+      </Box>
+      <Box css={css.BodyContainer}>
+        <TextField />
+      </Box>
     </Box>
   );
 };
