@@ -14,8 +14,8 @@ const Welcome: React.FC = () => (
       </Typography>
       <Typography css={css.WelcomeParagraph}>
         OpenAI has trained cutting-edge language models that are very good at understanding and generating text. Please,
-        use the textfield to communicate with AI. If you need any assistance, select one of the categories on the right to
-        fill out request message.
+        use the textfield to communicate with AI. If you need any assistance, select one of the categories below the prompt
+        field.
       </Typography>
     </Box>
     <Box>
