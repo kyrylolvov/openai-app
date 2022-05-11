@@ -178,6 +178,12 @@ export const ExamplesContainer: CSSWithTheme = () => ({
 export const ExampleCard: CSSWithTheme = () => ({
   display: 'flex',
   alignItems: 'center',
+  cursor: 'pointer',
+  transition: 'all 0.2s',
+
+  '&:hover': {
+    transform: 'scale(1.02)',
+  },
 });
 
 export const ExampleCardTextContainer: CSSWithTheme = () => ({
@@ -188,14 +194,12 @@ export const ExamplesWrapper: CSSWithTheme = (theme) => ({
   marginTop: '64px',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
-  gap: '16px',
-  gridGap: '16px',
+  gap: '24px',
+  gridGap: '24px',
   justifyItems: 'start',
 
   [theme.breakpoints.down(1350)]: {
     gridTemplateColumns: '1fr 1fr',
-    gap: '24px',
-    gridGap: '24px',
   },
 
   [theme.breakpoints.down('md')]: {

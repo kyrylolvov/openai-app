@@ -16,6 +16,7 @@
     "axios": "^0.26.1",
     "craco": "0.0.3",
     "eslint-config-airbnb": "^19.0.4",
+    "formik": "^2.2.9",
     "immer": "^9.0.12",
     "immer-reducer": "^0.7.13",
     "react": "^18.0.0",

@@ -1,5 +1,5 @@
 export const WelcomeBox: CSSWithTheme = (theme) => ({
-  margin: '64px auto 0 auto',
+  margin: '96px auto 0 auto',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gridGap: '32px',
@@ -30,14 +30,10 @@ export const WelcomeTextAccent: CSSWithTheme = () => ({
   WebkitTextFillColor: 'transparent',
 });
 
-export const WelcomeParagraph: CSSWithTheme = (theme) => ({
+export const WelcomeParagraph: CSSWithTheme = () => ({
   marginTop: '24px',
   fontSize: '14px',
   color: 'var(--typograghy-secondary)',
-
-  [theme.breakpoints.down(1150)]: {
-    fontSize: '12px',
-  },
 });
 
 export const WelcomeIllustrationContainer: CSSWithTheme = (theme) => ({
@@ -50,7 +46,7 @@ export const WelcomeIllustrationContainer: CSSWithTheme = (theme) => ({
 });
 
 export const WelcomeIllustration: CSSWithTheme = (theme) => ({
-  width: '40vw',
+  width: '45vw',
   maxHeight: '400px',
 
   [theme.breakpoints.down('md')]: {
