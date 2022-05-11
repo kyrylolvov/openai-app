@@ -156,19 +156,56 @@ export const ButtonBox: CSSWithTheme = () => ({
 });
 
 export const SubmitButton: CSSWithTheme = () => ({
-  padding: '12px 32px',
+  padding: '12px 24px 12px 24px',
   background: '#5298e9',
   fontFamily: 'GreycliffCF',
   fontWeight: 700,
   letterSpacing: 1.5,
+  borderRadius: '6px 0 0 6px',
   color: '#ffffff',
-  transition: 'all 0.2s',
 
   '&:hover': {
     background: '#5298e9',
     color: '#ffffff',
-    transform: 'scale(1.03)',
   },
+});
+
+export const ArrowButton: CSSWithTheme = () => ({
+  background: '#5298e9',
+  color: '#ffffff',
+  padding: '12px',
+  borderRadius: '0 6px 6px 0',
+  borderLeft: '1px solid #EAEAEB',
+
+  '& svg': {
+    height: '18px',
+  },
+
+  '&:hover': {
+    background: '#5298e9',
+    color: '#ffffff',
+  },
+});
+
+export const EngineMenu: CSSWithTheme = () => ({
+  '& .MuiPaper-root': {
+    backgroundColor: 'var(--background-main)',
+  },
+});
+
+export const EngineMenuItem: CSSWithTheme = () => ({
+  display: 'flex,',
+  flexDirection: 'column',
+  alignItems: 'start',
+});
+
+export const EngineMenuItemHeader: CSSWithTheme = () => ({
+  color: 'var(--typograghy-main)',
+});
+
+export const EngineMenuItemText: CSSWithTheme = () => ({
+  color: 'var(--typograghy-secondary)',
+  fontSize: '12px',
 });
 
 export const ExamplesContainer: CSSWithTheme = () => ({

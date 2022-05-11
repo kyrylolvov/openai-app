@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box } from '@mui/material';
 import useLocalStorage from 'use-local-storage';
 
@@ -13,6 +13,8 @@ import Welcome from '../components/Welcome';
 import TextField from '../components/Textfield';
 
 const Main: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
@@ -40,8 +42,8 @@ const Main: React.FC = () => {
           <WaveSeperator />
         </Box>
       </Box>
-      <Box css={css.BodyContainer}>
-        <TextField />
+      <Box ref={scrollRef} css={css.BodyContainer}>
+        <TextField theme={theme} scrollRef={scrollRef} />
       </Box>
     </Box>
   );

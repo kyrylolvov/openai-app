@@ -1,7 +1,13 @@
 import instance from './instance';
 
-const sendPrompt = async () => instance.post('/text-curie-001/completions', {
-  prompt: 'Write a poem about a dog wearing skis',
+const sendPrompt = async ({
+  prompt = 'Write a poem about a dog wearing skis',
+  engine = 'text-curie-001',
+}: {
+  prompt: string;
+  engine: string;
+}) => instance.post(`/${engine}/completions`, {
+  prompt,
   temperature: 0.5,
   max_tokens: 64,
   top_p: 1.0,

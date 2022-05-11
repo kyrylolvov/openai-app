@@ -1,16 +1,32 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
-  Box, Button, OutlinedInput, Typography,
+  Box, Button, IconButton, Menu, MenuItem, OutlinedInput, Typography,
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import examples from '../../utils/examples';
 
 import * as css from './css';
+import engines from '../../utils/engines';
 
-const TextField: React.FC = () => {
+interface TextFieldProps {
+  scrollRef: React.RefObject<HTMLDivElement>
+  theme: string
+}
+
+const TextField: React.FC<TextFieldProps> = ({ scrollRef, theme }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const initialValues = useMemo(
     () => ({
       prompt: '',
@@ -21,8 +37,8 @@ const TextField: React.FC = () => {
   const {
     values,
     handleChange,
-    // handleSubmit,
-    // isSubmitting,
+    handleSubmit,
+    isSubmitting,
     setFieldValue,
   } = useFormik({
     initialValues,
@@ -58,7 +74,36 @@ const TextField: React.FC = () => {
               css={css.PromptInput}
             />
             <Box css={css.ButtonBox}>
-              <Button css={css.SubmitButton}>Submit</Button>
+              <Button onClick={() => handleSubmit()} disabled={isSubmitting} css={css.SubmitButton}>Submit</Button>
+              <IconButton
+                aria-controls={anchorEl ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={anchorEl ? 'true' : undefined}
+                onClick={handleClick}
+                css={css.ArrowButton}
+              >
+                <FontAwesomeIcon icon={faAngleDown} />
+              </IconButton>
+              <Menu
+                data-theme={theme}
+                css={css.EngineMenu}
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={!!anchorEl}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+              >
+                {engines.map((engine) => (
+                  <MenuItem css={css.EngineMenuItem} onClick={handleClose}>
+                    <Typography css={css.EngineMenuItemHeader}>{engine.name}</Typography>
+                    <Typography css={css.EngineMenuItemText}>{engine.text}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
             </Box>
           </Box>
         </Box>
@@ -74,7 +119,13 @@ const TextField: React.FC = () => {
         </Typography>
         <Box css={css.ExamplesWrapper}>
           {examples.map((example) => (
-            <Box onClick={() => setFieldValue('prompt', example.example)} css={css.ExampleCard}>
+            <Box
+              onClick={() => {
+                scrollRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })!;
+                setFieldValue('prompt', example.example);
+              }}
+              css={css.ExampleCard}
+            >
               <Box css={css.IconBox(example.background)}>
                 <FontAwesomeIcon icon={example.icon} />
               </Box>
