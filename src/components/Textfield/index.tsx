@@ -196,6 +196,7 @@ const TextField: React.FC<TextFieldProps> = ({
         <Box css={css.ExamplesWrapper}>
           {examples.map((example) => (
             <Box
+              key={example.title}
               onClick={() => {
                 scrollRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })!;
                 setFieldValue('prompt', example.example);

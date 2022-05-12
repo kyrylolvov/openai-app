@@ -12,7 +12,6 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.0",
     "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.15",
     "axios": "^0.26.1",
     "craco": "0.0.3",
     "eslint-config-airbnb": "^19.0.4",
@@ -53,6 +52,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.11.26",
+    "@types/react-dom": "^18.0.4",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
     "eslint-config-airbnb-typescript": "^17.0.0"
