@@ -24,25 +24,25 @@
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('./assets/fonts/Greycliffcf-Demibold.otf') format('opentype');
+  src: url('./assets/fonts/Greycliffcf-Demibold.woff') format('opentype');
   font-weight: 600;
 }
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('./assets/fonts/Greycliffcf-Bold.otf') format('opentype');
+  src: url('./assets/fonts/Greycliffcf-Bold.woff') format('opentype');
   font-weight: 700;
 }
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('./assets/fonts/Greycliffcf-Extrabold.otf') format('opentype');
+  src: url('./assets/fonts/Greycliffcf-Extrabold.woff') format('opentype');
   font-weight: 800;
 }
 
 @font-face {
   font-family: 'GreycliffCF';
-  src: url('./assets/fonts/Greycliffcf-Heavy.otf') format('opentype');
+  src: url('./assets/fonts/Greycliffcf-Heavy.woff') format('opentype');
   font-weight: 900;
 }
 

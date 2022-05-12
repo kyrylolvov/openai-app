@@ -47,7 +47,7 @@ export const WelcomeIllustrationContainer: CSSWithTheme = (theme) => ({
 
 export const WelcomeIllustration: CSSWithTheme = (theme) => ({
   width: '45vw',
-  maxHeight: '400px',
+  maxHeight: '30vw',
 
   [theme.breakpoints.down('md')]: {
     width: '70vw',

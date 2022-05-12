@@ -1,8 +1,6 @@
 export const TextfieldBox: CSSWithTheme = (theme) => ({
   display: 'grid',
   gridTemplateColumns: '3fr 2fr',
-  gridGap: '64px',
-  gap: '64px',
 
   [theme.breakpoints.down(1100)]: {
     gridTemplateColumns: '1fr',
@@ -82,6 +80,15 @@ export const ResponsesTitle: CSSWithTheme = () => ({
     borderRight: '5px solid var(--typograghy-main)',
     borderBottom: '5px solid var(--typograghy-main)',
   },
+});
+
+export const ResponsesTitleCount: CSSWithTheme = () => ({
+  fontSize: '32px',
+  fontWeight: 900,
+  textTransform: 'uppercase',
+  marginLeft: '18px',
+  position: 'relative',
+  color: 'var(--typograghy-main)',
 });
 
 export const ExamplesTitle: CSSWithTheme = () => ({
@@ -241,5 +248,107 @@ export const IconBox = (background: string): CSSWithTheme => () => ({
     color: '#ffffff',
     height: '32px',
     width: '32px',
+  },
+});
+
+export const ResponseContainer: CSSWithTheme = () => ({
+  marginTop: '36px',
+});
+
+export const ResponseCard = (viewMore: boolean): CSSWithTheme => (theme) => ({
+  height: viewMore ? 'auto' : '263px',
+  boxSizing: 'border-box',
+  backgroundColor: 'var(--background-main)',
+  padding: '16px 32px',
+  borderRadius: '6px',
+  color: 'var(--typograghy-secondary)',
+  border: '1px solid var(--input-border)',
+
+  [theme.breakpoints.down(1100)]: {
+    width: '80%',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+  },
+});
+
+export const ResponseCardRequestText = (viewMore: boolean): CSSWithTheme => () => ({
+  whiteSpace: 'pre-line',
+  overflow: 'hidden',
+  display: viewMore ? 'block' : '-webkit-box',
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
+  maxWidth: '300px',
+  lineHeight: '24px',
+});
+
+export const ResponseCardResponseText = (viewMore: boolean): CSSWithTheme => () => ({
+  whiteSpace: 'pre-line',
+  overflow: 'hidden',
+  display: viewMore ? 'block' : '-webkit-box',
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
+  maxWidth: '300px',
+  lineHeight: '24px',
+});
+
+export const RequestRow: CSSWithTheme = () => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr 3fr',
+});
+
+export const RequestRowTitle: CSSWithTheme = () => ({
+  fontFamily: 'GreycliffCF',
+  fontWeight: 700,
+  color: 'var(--typograghy-main)',
+  maxWidth: '100px',
+});
+
+export const ViewMoreText: CSSWithTheme = () => ({
+  color: '#5298e9',
+  cursor: 'pointer',
+});
+
+export const ArrowIcon: CSSWithTheme = () => ({
+  '& svg': {
+    color: '#5298e9',
+    height: '32px',
+    width: '32px',
+  },
+});
+
+export const ArrowContainer: CSSWithTheme = () => ({
+  marginTop: '16px',
+  display: 'flex',
+  justifyContent: 'right',
+});
+
+export const NotFoundContainer: CSSWithTheme = (theme) => ({
+  marginTop: '32px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  height: '263px',
+
+  '& svg': {
+    height: '15vw',
+    width: '15vw',
+  },
+
+  '& p': {
+    fontSize: '24px',
+    marginTop: '24px',
+    fontFamily: 'GreycliffCF',
+    fontWeight: 700,
+    color: 'var(--typograghy-main)',
+  },
+
+  [theme.breakpoints.down(1100)]: {
+    '& svg': {
+      height: '40vw',
+      width: '30vw',
+    },
   },
 });
