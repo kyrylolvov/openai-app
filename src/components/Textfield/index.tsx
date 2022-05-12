@@ -1,32 +1,22 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import {
-  Box, Button, IconButton, Menu, MenuItem, OutlinedInput, Typography,
+  Box, Button, CircularProgress, OutlinedInput, Typography,
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import examples from '../../utils/examples';
 
 import * as css from './css';
-import engines from '../../utils/engines';
 
 interface TextFieldProps {
-  scrollRef: React.RefObject<HTMLDivElement>
-  theme: string
+  scrollRef: React.RefObject<HTMLDivElement>;
+  fetchOpenAi: (payload: { prompt: string; engine?: string }) => void;
+  fetchStatus: string
 }
 
-const TextField: React.FC<TextFieldProps> = ({ scrollRef, theme }) => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+const TextField: React.FC<TextFieldProps> = ({ scrollRef, fetchOpenAi, fetchStatus }) => {
   const initialValues = useMemo(
     () => ({
       prompt: '',
@@ -35,16 +25,12 @@ const TextField: React.FC<TextFieldProps> = ({ scrollRef, theme }) => {
   );
 
   const {
-    values,
-    handleChange,
-    handleSubmit,
-    isSubmitting,
-    setFieldValue,
+    values, handleChange, handleSubmit, setFieldValue,
   } = useFormik({
     initialValues,
     onSubmit: async (values) => {
       try {
-        console.log(values);
+        fetchOpenAi({ prompt: values.prompt });
       } catch (err: any) {
         if (err.message) {
           console.log(err.message);
@@ -53,8 +39,6 @@ const TextField: React.FC<TextFieldProps> = ({ scrollRef, theme }) => {
     },
     enableReinitialize: true,
   });
-
-  console.log(values);
 
   return (
     <Box>
@@ -74,36 +58,9 @@ const TextField: React.FC<TextFieldProps> = ({ scrollRef, theme }) => {
               css={css.PromptInput}
             />
             <Box css={css.ButtonBox}>
-              <Button onClick={() => handleSubmit()} disabled={isSubmitting} css={css.SubmitButton}>Submit</Button>
-              <IconButton
-                aria-controls={anchorEl ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={anchorEl ? 'true' : undefined}
-                onClick={handleClick}
-                css={css.ArrowButton}
-              >
-                <FontAwesomeIcon icon={faAngleDown} />
-              </IconButton>
-              <Menu
-                data-theme={theme}
-                css={css.EngineMenu}
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={!!anchorEl}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'basic-button',
-                }}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-              >
-                {engines.map((engine) => (
-                  <MenuItem css={css.EngineMenuItem} onClick={handleClose}>
-                    <Typography css={css.EngineMenuItemHeader}>{engine.name}</Typography>
-                    <Typography css={css.EngineMenuItemText}>{engine.text}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+              <Button onClick={() => handleSubmit()} disabled={fetchStatus === 'IN_PROGRESS' || !values.prompt.length} css={css.SubmitButton}>
+                {fetchStatus === 'IN_PROGRESS' ? <CircularProgress css={css.Progress} /> : <span>Submit</span>}
+              </Button>
             </Box>
           </Box>
         </Box>
