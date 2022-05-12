@@ -8,6 +8,7 @@ export const WelcomeBox: CSSWithTheme = (theme) => ({
 
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: '1fr',
+    marginTop: '56px',
     textAlign: 'center',
     gridGap: '48px',
     gap: '48px',
@@ -17,11 +18,15 @@ export const WelcomeBox: CSSWithTheme = (theme) => ({
 export const WelcomeTitle: CSSWithTheme = (theme) => ({
   fontWeight: 900,
   color: 'var(--typograghy-main)',
+  animation: '1.2s ease-out 0s 1 slideInFromLeft',
 
   [theme.breakpoints.down(1150)]: {
     fontSize: '44px',
   },
 
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '36px',
+  },
 });
 
 export const WelcomeTextAccent: CSSWithTheme = () => ({
@@ -34,11 +39,13 @@ export const WelcomeParagraph: CSSWithTheme = () => ({
   marginTop: '24px',
   fontSize: '14px',
   color: 'var(--typograghy-secondary)',
+  animation: '1.2s ease-out 0s 1 slideInFromLeft',
 });
 
 export const WelcomeIllustrationContainer: CSSWithTheme = (theme) => ({
   display: 'flex',
   justifyContent: 'flex-end',
+  animation: '1.2s ease-out 0s 1 slideInFromRight',
 
   [theme.breakpoints.down('md')]: {
     justifyContent: 'center',
@@ -51,6 +58,7 @@ export const WelcomeIllustration: CSSWithTheme = (theme) => ({
 
   [theme.breakpoints.down('md')]: {
     width: '70vw',
+    maxHeight: '60vw',
   },
 
   [theme.breakpoints.down('sm')]: {

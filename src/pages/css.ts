@@ -3,6 +3,7 @@ export const MainContainer: CSSWithTheme = () => ({
   width: '100vw',
   transition: 'all 0.3s',
   background: 'var(--background-secondary)',
+  paddingBottom: '16px',
 });
 
 export const TopContainer: CSSWithTheme = (theme) => ({
@@ -44,5 +45,16 @@ export const BodyContainer: CSSWithTheme = (theme) => ({
 
   [theme.breakpoints.down('sm')]: {
     padding: '24px',
+  },
+});
+
+export const Author: CSSWithTheme = () => ({
+  fontSize: '12px',
+  textAlign: 'center',
+  color: 'var(--typograghy-main)',
+
+  '& a': {
+    textDecoration: 'none',
+    color: 'var(--typograghy-main)',
   },
 });

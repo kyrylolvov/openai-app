@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Toaster } from 'react-hot-toast';
 
 import Main from './pages/Main';
 
@@ -24,6 +25,14 @@ const App = () => (
         <Route path="/" element={<Main />} />
       </Routes>
     </Router>
+    <Toaster
+      position="top-right"
+      toastOptions={{
+        style: {
+          fontWeight: 500,
+        },
+      }}
+    />
   </ThemeProvider>
 );
 

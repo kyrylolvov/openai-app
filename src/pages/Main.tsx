@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import useLocalStorage from 'use-local-storage';
 
 import { ReactComponent as WaveSeperator } from '../assets/img/svg/wave.svg';
@@ -66,6 +66,11 @@ const Main: React.FC = () => {
           scrollRef={scrollRef}
         />
       </Box>
+      <Typography css={css.Author}>
+        Designed and developed by
+        {' '}
+        <a target="_blank" href="https://www.linkedin.com/in/kyrylolvov/" rel="noreferrer">Kyrylo Lvov</a>
+      </Typography>
     </Box>
   );
 };

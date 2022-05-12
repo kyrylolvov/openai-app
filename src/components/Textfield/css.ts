@@ -190,6 +190,25 @@ export const ExamplesContainer: CSSWithTheme = () => ({
   marginTop: '64px',
 });
 
+export const ResponsesContainer: CSSWithTheme = (theme) => ({
+  [theme.breakpoints.down(1100)]: {
+    marginTop: '64px',
+  },
+});
+
+export const ResponsesTextContainer: CSSWithTheme = (theme) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+
+  [theme.breakpoints.down(1100)]: {
+    width: '80%',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+  },
+});
+
 export const ExampleCard: CSSWithTheme = () => ({
   display: 'flex',
   alignItems: 'center',
@@ -318,10 +337,18 @@ export const ArrowIcon: CSSWithTheme = () => ({
   },
 });
 
-export const ArrowContainer: CSSWithTheme = () => ({
+export const ArrowContainer: CSSWithTheme = (theme) => ({
   marginTop: '16px',
   display: 'flex',
   justifyContent: 'right',
+
+  [theme.breakpoints.down(1100)]: {
+    width: '80%',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+  },
 });
 
 export const NotFoundContainer: CSSWithTheme = (theme) => ({
@@ -347,8 +374,8 @@ export const NotFoundContainer: CSSWithTheme = (theme) => ({
 
   [theme.breakpoints.down(1100)]: {
     '& svg': {
-      height: '40vw',
-      width: '30vw',
+      height: '70vw',
+      width: '80vw',
     },
   },
 });

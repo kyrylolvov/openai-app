@@ -2,6 +2,8 @@ export const HeaderBox: CSSWithTheme = () => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+
+  animation: '1s ease-out 0s 1 slideInFromTop',
 });
 
 export const LogoText: CSSWithTheme = () => ({

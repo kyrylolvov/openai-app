@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowLeft, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
+import toast from 'react-hot-toast';
 import { ReactComponent as NotFound } from '../../assets/img/illustration/NotFound.svg';
 
 import examples from '../../utils/examples';
@@ -59,7 +60,7 @@ const TextField: React.FC<TextFieldProps> = ({
         fetchOpenAi({ prompt: values.prompt });
       } catch (err: any) {
         if (err.message) {
-          console.log(err.message);
+          toast.error(err.message);
         }
       }
     },
@@ -77,7 +78,7 @@ const TextField: React.FC<TextFieldProps> = ({
       scrollHeight: requestResponse?.current?.scrollHeight ?? 0,
       clientHeight: requestResponse?.current?.clientHeight ?? 0,
     });
-  }, [currentResponseShown]);
+  }, [currentResponseShown, responses]);
 
   useEffect(() => {
     setCurrentResponseShown(0);
@@ -111,8 +112,8 @@ const TextField: React.FC<TextFieldProps> = ({
             </Box>
           </Box>
         </Box>
-        <Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Box css={css.ResponsesContainer}>
+          <Box css={css.ResponsesTextContainer}>
             <Typography variant="h2" css={css.ResponsesTitle}>
               Responses
             </Typography>
@@ -159,7 +160,7 @@ const TextField: React.FC<TextFieldProps> = ({
                       >
                         View
                         {' '}
-                        {requestTextViewMore ? 'less' : 'more'}
+                        {responseTextViewMore ? 'less' : 'more'}
                       </Typography>
                       )}
                     </Box>
