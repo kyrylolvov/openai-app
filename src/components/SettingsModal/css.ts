@@ -33,8 +33,8 @@ export const CloseButtonContainer: CSSWithTheme = () => ({
   '& button': {
     '& svg': {
       color: 'var(--typograghy-secondary)',
-      height: '24px',
-      width: '24px',
+      height: '1.25rem',
+      width: '1.25rem',
     },
   },
 });
@@ -113,7 +113,7 @@ export const Input: CSSWithTheme = (theme) => ({
   height: '63px',
 
   [theme.breakpoints.up(1440)]: {
-    height: '3rem',
+    height: '3.5rem',
   },
 });
 
