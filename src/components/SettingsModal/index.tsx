@@ -2,19 +2,24 @@ import React from 'react';
 import {
   Modal, Box, Typography, IconButton, FormControl, InputLabel, MenuItem, Select, OutlinedInput, Button,
 } from '@mui/material';
-
-import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as css from './css';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+
 import engines from '../../utils/engines';
+import { PromptResponse } from '../../utils/types';
+
+import * as css from './css';
 
 interface SettingsModalProps {
   open: boolean;
   onClose: () => void;
   theme: string;
+  setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>
 }
 
-const SettingsModal: React.FC<SettingsModalProps> = ({ open, onClose, theme }) => (
+const SettingsModal: React.FC<SettingsModalProps> = ({
+  open, onClose, theme, setResponses,
+}) => (
   <Modal open={open} onClose={onClose} data-theme={theme}>
     <Box css={css.ModalContainer}>
       <Box css={css.CloseButtonContainer}>
@@ -86,7 +91,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ open, onClose, theme }) =
         </Box>
 
         <Box css={css.ButtonsContainer}>
-          <Button css={css.ClearButton}>Clear results</Button>
+          <Button onClick={() => setResponses([])} css={css.ClearButton}>Clear results</Button>
           <Button css={css.SaveChangesButton}>Save changes</Button>
         </Box>
       </Box>

@@ -27,6 +27,8 @@ export const TopContainerInside: CSSWithTheme = (theme) => ({
 });
 
 export const Seperator: CSSWithTheme = (theme) => ({
+  overflow: 'hidden',
+
   '& svg': {
     '& path': { fill: 'var(--background-secondary)' },
   },

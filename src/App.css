@@ -9,6 +9,9 @@
   --input-background: #ffffff;
   --input-border: #cfd4d9;
   --input-border-active: #5298e9;
+
+  --border-modal: transparent;
+  --modal-shadow: rgba(0, 0, 0, 0.5);
 }
 
 [data-theme='dark'] {
@@ -22,6 +25,9 @@
   --input-background: #323741;
   --input-border: transparent;
   --input-border-active: transparent;
+
+  --border-modal: #cfd4d9;
+  --modal-shadow: rgba(255, 255, 255, 0.15);
 }
 
 @font-face {
@@ -108,4 +114,9 @@ textarea::-webkit-scrollbar {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.MuiBackdrop-root {
+  background-color: var(--modal-shadow) !important;
+  backdrop-filter: blur(3px);
 }

@@ -59,6 +59,7 @@ const Main: React.FC = () => {
       </Box>
       <Box ref={scrollRef} css={css.BodyContainer}>
         <TextField
+          setResponses={setResponses}
           responses={responses}
           fetchStatus={openAiState.status}
           setCurrentPrompt={setCurrentPrompt}

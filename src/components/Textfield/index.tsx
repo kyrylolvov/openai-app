@@ -7,16 +7,16 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import toast from 'react-hot-toast';
 import { faCircleArrowLeft, faCircleArrowRight, faGear } from '@fortawesome/free-solid-svg-icons';
 
-import toast from 'react-hot-toast';
 import { ReactComponent as NotFound } from '../../assets/img/illustration/NotFound.svg';
+import SettingsModal from '../SettingsModal';
 
 import examples from '../../utils/examples';
 import { PromptResponse } from '../../utils/types';
 
 import * as css from './css';
-import SettingsModal from '../SettingsModal';
 
 interface TextFieldProps {
   scrollRef: React.RefObject<HTMLDivElement>;
@@ -25,10 +25,11 @@ interface TextFieldProps {
   setCurrentPrompt: React.Dispatch<React.SetStateAction<string>>;
   theme: string;
   responses: PromptResponse[];
+  setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>
 }
 
 const TextField: React.FC<TextFieldProps> = ({
-  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses, theme,
+  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses, theme, setResponses,
 }) => {
   const requestText = useRef<HTMLSpanElement>(null);
   const requestResponse = useRef<HTMLSpanElement>(null);
@@ -222,7 +223,12 @@ const TextField: React.FC<TextFieldProps> = ({
           ))}
         </Box>
       </Box>
-      <SettingsModal theme={theme} open={settingsModalOpen} onClose={() => setSettingsModalOpen(false)} />
+      <SettingsModal
+        theme={theme}
+        open={settingsModalOpen}
+        onClose={() => setSettingsModalOpen(false)}
+        setResponses={setResponses}
+      />
     </Box>
   );
 };

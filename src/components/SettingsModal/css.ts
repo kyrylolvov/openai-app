@@ -1,8 +1,8 @@
 export const ModalContainer: CSSWithTheme = (theme) => ({
   backgroundColor: 'var(--modal-background)',
   outline: 'none',
-  borderRadius: '16px',
-  width: '500px',
+  borderRadius: '6px',
+  width: '550px',
   position: 'absolute',
   transform: 'translate(-50%, -50%)',
   boxSizing: 'border-box',
@@ -65,7 +65,7 @@ export const EngineSelect: CSSWithTheme = () => ({
   },
 
   '& fieldset': {
-    borderColor: 'var(--typograghy-main) !important',
+    borderColor: '#cfd4d9 !important',
   },
 });
 
@@ -105,7 +105,7 @@ export const Input: CSSWithTheme = () => ({
   color: 'var(--typograghy-main)',
 
   '& fieldset': {
-    borderColor: 'var(--typograghy-main) !important',
+    borderColor: '#cfd4d9 !important',
   },
 });
 
