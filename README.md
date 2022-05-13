@@ -8,8 +8,9 @@ The creation of this web application involved research on OpenAI API, which allo
 
 ### Featues
 
-- Storing five last searches of user (can be easily increased)
+- Storing five last searches of user (can be easily increased) and automatically deleting duplicate
 - List of predefined prompts
+- In-depth configuration of AI prompts
 - Dark theme
 
 ### Technolgies Used
