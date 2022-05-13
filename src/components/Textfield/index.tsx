@@ -24,12 +24,19 @@ interface TextFieldProps {
   fetchStatus: string;
   setCurrentPrompt: React.Dispatch<React.SetStateAction<string>>;
   responses: PromptResponse[];
-  setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>
+  setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>;
 }
 
 const TextField: React.FC<TextFieldProps> = ({
-  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses, setResponses,
+  scrollRef,
+  fetchOpenAi,
+  fetchStatus,
+  setCurrentPrompt,
+  responses,
+  setResponses,
 }) => {
+  const settingsStored = localStorage.getItem('settings') ?? '';
+
   const requestText = useRef<HTMLSpanElement>(null);
   const requestResponse = useRef<HTMLSpanElement>(null);
 
@@ -46,13 +53,17 @@ const TextField: React.FC<TextFieldProps> = ({
     clientHeight: requestResponse?.current?.clientHeight ?? 0,
   });
 
-  const [additionalSettings, setAdditionalSettings] = useState<AdditionalSettings>({
-    engine: 'text-davinci-002',
-    temperature: 0.5,
-    maxTokens: 64,
-    frequencyPenalty: 0,
-    presencePenalty: 0,
-  });
+  const [additionalSettings, setAdditionalSettings] = useState<AdditionalSettings>(
+    !settingsStored
+      ? {
+        engine: 'text-davinci-002',
+        temperature: 0.5,
+        maxTokens: 64,
+        frequencyPenalty: 0,
+        presencePenalty: 0,
+      }
+      : JSON.parse(settingsStored),
+  );
 
   const initialValues = useMemo(
     () => ({
@@ -94,6 +105,10 @@ const TextField: React.FC<TextFieldProps> = ({
   useEffect(() => {
     setCurrentResponseShown(0);
   }, [responses]);
+
+  useEffect(() => {
+    localStorage.setItem('settings', JSON.stringify(additionalSettings));
+  }, [additionalSettings]);
 
   return (
     <Box>
@@ -155,11 +170,11 @@ const TextField: React.FC<TextFieldProps> = ({
                         {responses[currentResponseShown].prompt.trim()}
                       </Typography>
                       {requestTextHeight.scrollHeight! > requestTextHeight.clientHeight! && (
-                      <Typography css={css.ViewMoreText} onClick={() => setRequestTextViewMore(!requestTextViewMore)}>
-                        View
+                        <Typography css={css.ViewMoreText} onClick={() => setRequestTextViewMore(!requestTextViewMore)}>
+                          View
                           {' '}
-                        {requestTextViewMore ? 'less' : 'more'}
-                      </Typography>
+                          {requestTextViewMore ? 'less' : 'more'}
+                        </Typography>
                       )}
                     </Box>
                   </Box>
@@ -170,14 +185,14 @@ const TextField: React.FC<TextFieldProps> = ({
                         {responses[currentResponseShown].response.trim()}
                       </Typography>
                       {responseTextHeight.scrollHeight! > responseTextHeight.clientHeight! && (
-                      <Typography
-                        css={css.ViewMoreText}
-                        onClick={() => setResponseTextViewMore(!responseTextViewMore)}
-                      >
-                        View
-                        {' '}
-                        {responseTextViewMore ? 'less' : 'more'}
-                      </Typography>
+                        <Typography
+                          css={css.ViewMoreText}
+                          onClick={() => setResponseTextViewMore(!responseTextViewMore)}
+                        >
+                          View
+                          {' '}
+                          {responseTextViewMore ? 'less' : 'more'}
+                        </Typography>
                       )}
                     </Box>
                   </Box>

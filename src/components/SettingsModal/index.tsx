@@ -2,8 +2,19 @@
 import React, { useMemo } from 'react';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
+import * as yup from 'yup';
 import {
-  Modal, Box, Typography, IconButton, FormControl, InputLabel, MenuItem, Select, OutlinedInput, Button,
+  Modal,
+  Box,
+  Typography,
+  IconButton,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  OutlinedInput,
+  Button,
+  FormHelperText,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
@@ -16,13 +27,17 @@ import * as css from './css';
 interface SettingsModalProps {
   open: boolean;
   onClose: () => void;
-  setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>
-  additionalSettings: AdditionalSettings
-  setAdditionalSettings: React.Dispatch<React.SetStateAction<AdditionalSettings>>
+  setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>;
+  additionalSettings: AdditionalSettings;
+  setAdditionalSettings: React.Dispatch<React.SetStateAction<AdditionalSettings>>;
 }
 
 const SettingsModal: React.FC<SettingsModalProps> = ({
-  open, onClose, setResponses, additionalSettings, setAdditionalSettings,
+  open,
+  onClose,
+  setResponses,
+  additionalSettings,
+  setAdditionalSettings,
 }) => {
   const initialValues = useMemo<AdditionalSettings>(
     () => ({
@@ -35,13 +50,44 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     [],
   );
 
+  const validationSchema = yup.object({
+    engine: yup.string().required('This field is required'),
+    temperature: yup
+      .number()
+      .min(0, 'Minimum value is 0')
+      .max(1, 'Maximum value is 1')
+      .required('This field is required'),
+    maxTokens: yup
+      .number()
+      .min(1, 'Minimum value is 0')
+      .max(256, 'Maximum value is 256')
+      .required('This field is required'),
+    frequencyPenalty: yup
+      .number()
+      .min(1, 'Minimum value is 0')
+      .max(2, 'Maximum value is 2')
+      .required('This field is required'),
+    presensePenalty: yup
+      .number()
+      .min(1, 'Minimum value is 0')
+      .max(2, 'Maximum value is 2')
+      .required('This field is required'),
+  });
+
   const {
-    values, handleChange, handleSubmit,
+    values, handleChange, handleSubmit, touched, errors,
   } = useFormik({
     initialValues,
+    validationSchema,
     onSubmit: async (values) => {
       try {
-        setAdditionalSettings(values);
+        setAdditionalSettings({
+          engine: values.engine,
+          temperature: +values.temperature,
+          maxTokens: +values.maxTokens,
+          frequencyPenalty: +values.frequencyPenalty,
+          presencePenalty: +values.presencePenalty,
+        });
         onClose();
       } catch (err: any) {
         if (err.message) {
@@ -60,10 +106,14 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <FontAwesomeIcon icon={faClose} />
           </IconButton>
         </Box>
-        <Typography css={css.ModalTitle} variant="h2">AI Configuration</Typography>
+        <Typography css={css.ModalTitle} variant="h2">
+          AI Configuration
+        </Typography>
         <Box css={css.ModalBody}>
           <FormControl css={css.EngineSelectContol} fullWidth>
-            <InputLabel sx={{ color: 'var(--typograghy-main)' }} id="engine-label">Select engine</InputLabel>
+            <InputLabel sx={{ color: 'var(--typograghy-main)' }} id="engine-label">
+              Select engine
+            </InputLabel>
             <Select
               labelId="engine-label"
               label="Select engine"
@@ -74,7 +124,9 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             >
               {engines.map((engine) => (
                 <MenuItem key={engine.name} css={css.EngineMenuItem} value={engine.name}>
-                  <Typography variant="h2" css={css.EngineMenuItemTitle}>{engine.name}</Typography>
+                  <Typography variant="h2" css={css.EngineMenuItemTitle}>
+                    {engine.name}
+                  </Typography>
                   <Typography css={css.EngineMenuItemSubTitle}>{engine.text}</Typography>
                 </MenuItem>
               ))}
@@ -82,70 +134,93 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
           </FormControl>
           <Box css={css.InputRow}>
             <FormControl css={css.EngineSelectContol}>
-              <InputLabel id="name-label">
+              <InputLabel error={touched.temperature && !!errors.temperature} id="name-label">
                 Temperature
               </InputLabel>
               <OutlinedInput
                 css={css.Input}
                 autoComplete="off"
                 label="Temperature"
+                error={touched.temperature && !!errors.temperature}
                 value={values.temperature}
                 name="temperature"
+                type="number"
                 onChange={handleChange}
               />
+              {touched.temperature && !!errors.temperature && (
+                <FormHelperText style={{ color: '#FF0C3E' }}>{errors.temperature}</FormHelperText>
+              )}
             </FormControl>
-            <FormControl css={css.EngineSelectContol}>
-              <InputLabel id="name-label">
-                Maximum length
-              </InputLabel>
+            <FormControl error={touched.maxTokens && !!errors.maxTokens} css={css.EngineSelectContol}>
+              <InputLabel id="name-label">Maximum length</InputLabel>
               <OutlinedInput
                 css={css.Input}
                 autoComplete="off"
                 label="Maximum length"
+                error={touched.maxTokens && !!errors.maxTokens}
                 value={values.maxTokens}
                 name="maxTokens"
+                type="number"
                 onChange={handleChange}
               />
+              {touched.maxTokens && !!errors.maxTokens && (
+                <FormHelperText style={{ color: '#FF0C3E' }}>{errors.maxTokens}</FormHelperText>
+              )}
             </FormControl>
           </Box>
 
           <Box css={css.InputRow}>
             <FormControl css={css.EngineSelectContol}>
-              <InputLabel id="name-label">
+              <InputLabel error={touched.frequencyPenalty && !!errors.frequencyPenalty} id="name-label">
                 Frequency penalty
               </InputLabel>
               <OutlinedInput
                 css={css.Input}
                 autoComplete="off"
                 label="Frequency penalty"
+                error={touched.frequencyPenalty && !!errors.frequencyPenalty}
                 value={values.frequencyPenalty}
                 name="frequencyPenalty"
+                type="number"
                 onChange={handleChange}
               />
+              {touched.frequencyPenalty && !!errors.frequencyPenalty && (
+                <FormHelperText style={{ color: '#FF0C3E' }}>{errors.frequencyPenalty}</FormHelperText>
+              )}
             </FormControl>
             <FormControl css={css.EngineSelectContol}>
-              <InputLabel id="name-label">
+              <InputLabel error={touched.presencePenalty && !!errors.presencePenalty} id="name-label">
                 Presence penalty
               </InputLabel>
               <OutlinedInput
                 css={css.Input}
                 autoComplete="off"
                 label="Presence penalty"
+                error={touched.presencePenalty && !!errors.presencePenalty}
                 value={values.presencePenalty}
                 name="presencePenalty"
+                type="number"
                 onChange={handleChange}
               />
+              {touched.presencePenalty && !!errors.presencePenalty && (
+                <FormHelperText style={{ color: '#FF0C3E' }}>{errors.presencePenalty}</FormHelperText>
+              )}
             </FormControl>
           </Box>
 
           <Box css={css.ButtonsContainer}>
             <Button
-              onClick={() => { setResponses([]); onClose(); }}
+              onClick={() => {
+                setResponses([]);
+                onClose();
+              }}
               css={css.ClearButton}
             >
               Clear results
             </Button>
-            <Button onClick={() => handleSubmit()} css={css.SaveChangesButton}>Save changes</Button>
+            <Button onClick={() => handleSubmit()} css={css.SaveChangesButton}>
+              Save changes
+            </Button>
           </Box>
         </Box>
       </Box>

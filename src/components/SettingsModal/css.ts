@@ -67,7 +67,7 @@ export const EngineSelect: CSSWithTheme = () => ({
   },
 
   '& fieldset': {
-    borderColor: '#cfd4d9 !important',
+    borderColor: '#cfd4d9',
   },
 });
 
@@ -108,7 +108,7 @@ export const Input: CSSWithTheme = () => ({
   height: '63px',
 
   '& fieldset': {
-    borderColor: '#cfd4d9 !important',
+    borderColor: '#cfd4d9',
   },
 });
 

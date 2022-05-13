@@ -128,3 +128,21 @@ textarea::-webkit-scrollbar {
 :not(.Mui-focused):not(.MuiFormLabel-filled).MuiInputLabel-root {
   transform: translate(14px, 20px) scale(1);
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.Mui-error {
+  color: #ff0c3e !important;
+}
+
+.MuiOutlinedInput-root.Mui-error.Mui-focused fieldset {
+  border-color: #ff0c3e !important;
+}
