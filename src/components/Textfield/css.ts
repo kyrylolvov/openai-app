@@ -187,6 +187,11 @@ export const SubmitButton: CSSWithTheme = () => ({
     color: '#ffffff',
     transform: 'scale(1.02)',
   },
+
+  '&:disabled': {
+    background: 'var(--disabled-button-background)',
+    color: 'var(--disabled-button-text)',
+  },
 });
 
 export const Progress: CSSWithTheme = () => ({

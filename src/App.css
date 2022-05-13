@@ -12,6 +12,9 @@
 
   --border-modal: transparent;
   --modal-shadow: rgba(0, 0, 0, 0.5);
+
+  --disabled-button-background: #dcdcdc;
+  --disabled-button-text: #c2c4c3;
 }
 
 [data-theme='dark'] {
@@ -28,6 +31,9 @@
 
   --border-modal: #cfd4d9;
   --modal-shadow: rgba(255, 255, 255, 0.15);
+
+  --disabled-button-background: #323741;
+  --disabled-button-text: #4e4e4e;
 }
 
 @font-face {
@@ -147,6 +153,10 @@ input[type='number'] {
   border-color: #ff0c3e !important;
 }
 
-.MuiOutlinedInput-root:not(.Mui-error):not(.Mui-focused) fieldset {
+.MuiOutlinedInput-root:not(.Mui-error):not(.Mui-focused).MuiInputBase-formControl fieldset {
   border-color: #cfd4d9;
+}
+
+.MuiButton-root {
+  padding-top: 8px !important;
 }

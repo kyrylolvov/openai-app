@@ -47,7 +47,7 @@ const TextField: React.FC<TextFieldProps> = ({
   const requestText = useRef<HTMLSpanElement>(null);
   const requestResponse = useRef<HTMLSpanElement>(null);
 
-  const [settingsModalOpen, setSettingsModalOpen] = useState(true);
+  const [settingsModalOpen, setSettingsModalOpen] = useState(false);
   const [requestTextViewMore, setRequestTextViewMore] = useState(false);
   const [responseTextViewMore, setResponseTextViewMore] = useState(false);
   const [currentResponseShown, setCurrentResponseShown] = useState(0);

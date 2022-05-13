@@ -48,7 +48,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
       frequencyPenalty: additionalSettings.frequencyPenalty,
       presencePenalty: additionalSettings.presencePenalty,
     }),
-    [],
+    [open],
   );
 
   const validationSchema = yup.object({
