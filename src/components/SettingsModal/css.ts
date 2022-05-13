@@ -11,6 +11,10 @@ export const ModalContainer: CSSWithTheme = (theme) => ({
   top: '50%',
   left: '50%',
 
+  [theme.breakpoints.up(1440)]: {
+    width: '35vw',
+  },
+
   [theme.breakpoints.down('sm')]: {
     width: '80vw',
     padding: '32px 16px',
@@ -38,7 +42,7 @@ export const CloseButtonContainer: CSSWithTheme = () => ({
 export const ModalTitle: CSSWithTheme = () => ({
   textAlign: 'center',
   fontWeight: 800,
-  fontSize: '24px',
+  fontSize: '1.5rem',
   color: 'var(--typograghy-main)',
 });
 
@@ -65,7 +69,7 @@ export const EngineSelectContol: CSSWithTheme = () => ({
 
 export const EngineSelect: CSSWithTheme = () => ({
   backgroundColor: 'var(--input-background)',
-  height: '63px',
+  height: '3.9375rem',
 
   '& svg': {
     color: 'var(--typograghy-main)',
@@ -79,16 +83,16 @@ export const EngineMenuItem: CSSWithTheme = () => ({
 });
 
 export const EngineMenuItemTitle: CSSWithTheme = () => ({
-  fontSize: '16px',
-  lineHeight: '16px',
+  fontSize: '1rem',
+  lineHeight: '1rem',
   fontWeight: 700,
   color: 'var(--typograghy-main) !important',
 });
 
 export const EngineMenuItemSubTitle: CSSWithTheme = () => ({
   color: 'var(--typograghy-secondary)',
-  fontSize: '12px',
-  lineHeight: '14px',
+  fontSize: '0.75rem',
+  lineHeight: '0.75rem',
 });
 
 export const InputRow: CSSWithTheme = (theme) => ({
@@ -103,10 +107,14 @@ export const InputRow: CSSWithTheme = (theme) => ({
   },
 });
 
-export const Input: CSSWithTheme = () => ({
+export const Input: CSSWithTheme = (theme) => ({
   backgroundColor: 'var(--input-background)',
   color: 'var(--typograghy-main)',
   height: '63px',
+
+  [theme.breakpoints.up(1440)]: {
+    height: '3rem',
+  },
 });
 
 export const ButtonsContainer: CSSWithTheme = () => ({
@@ -117,8 +125,8 @@ export const ButtonsContainer: CSSWithTheme = () => ({
 
 export const ClearButton: CSSWithTheme = () => ({
   marginRight: '16px',
-  padding: '6px 16px !important',
-  height: '48px',
+  padding: '0.375rem 1rem !important',
+  height: '3rem',
   fontFamily: 'GreycliffCF',
   fontWeight: 700,
   letterSpacing: 1.5,
@@ -133,8 +141,8 @@ export const ClearButton: CSSWithTheme = () => ({
 });
 
 export const SaveChangesButton: CSSWithTheme = () => ({
-  padding: '6px 16px !important',
-  height: '48px',
+  padding: '0.375rem 1rem !important',
+  height: '3rem',
   background: '#5298e9',
   fontFamily: 'GreycliffCF',
   fontWeight: 700,

@@ -51,7 +51,7 @@ export const BodyContainer: CSSWithTheme = (theme) => ({
 });
 
 export const Author: CSSWithTheme = () => ({
-  fontSize: '12px',
+  fontSize: '0.75rem',
   textAlign: 'center',
   color: 'var(--typograghy-main)',
 

@@ -21,11 +21,11 @@ export const WelcomeTitle: CSSWithTheme = (theme) => ({
   animation: '1.2s ease-out 0s 1 slideInFromLeft',
 
   [theme.breakpoints.down(1150)]: {
-    fontSize: '44px',
+    fontSize: '2.75rem',
   },
 
   [theme.breakpoints.down('sm')]: {
-    fontSize: '36px',
+    fontSize: '2.25rem',
   },
 });
 
@@ -37,7 +37,7 @@ export const WelcomeTextAccent: CSSWithTheme = () => ({
 
 export const WelcomeParagraph: CSSWithTheme = () => ({
   marginTop: '24px',
-  fontSize: '14px',
+  fontSize: '0.875rem',
   color: 'var(--typograghy-secondary)',
   animation: '1.2s ease-out 0s 1 slideInFromLeft',
 });

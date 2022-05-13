@@ -17,7 +17,7 @@ export const RequestContainer: CSSWithTheme = (theme) => ({
 });
 
 export const TextfieldTitle: CSSWithTheme = (theme) => ({
-  fontSize: '32px',
+  fontSize: '2rem',
   fontWeight: 900,
   marginLeft: '18px',
   textTransform: 'uppercase',
@@ -39,7 +39,7 @@ export const TextfieldTitle: CSSWithTheme = (theme) => ({
     content: '""',
     position: 'absolute',
     top: '35px',
-    left: '220px',
+    left: '13.75rem',
     height: '10px',
     width: '10px',
     borderRight: '5px solid var(--typograghy-main)',
@@ -52,7 +52,7 @@ export const TextfieldTitle: CSSWithTheme = (theme) => ({
 });
 
 export const ResponsesTitle: CSSWithTheme = () => ({
-  fontSize: '32px',
+  fontSize: '2rem',
   fontWeight: 900,
   textTransform: 'uppercase',
   marginLeft: '18px',
@@ -74,7 +74,7 @@ export const ResponsesTitle: CSSWithTheme = () => ({
     content: '""',
     position: 'absolute',
     top: '35px',
-    left: '170px',
+    left: '10.625rem',
     height: '10px',
     width: '10px',
     borderRight: '5px solid var(--typograghy-main)',
@@ -83,7 +83,7 @@ export const ResponsesTitle: CSSWithTheme = () => ({
 });
 
 export const ResponsesTitleCount: CSSWithTheme = () => ({
-  fontSize: '32px',
+  fontSize: '2rem',
   fontWeight: 900,
   textTransform: 'uppercase',
   marginLeft: '18px',
@@ -92,7 +92,7 @@ export const ResponsesTitleCount: CSSWithTheme = () => ({
 });
 
 export const ExamplesTitle: CSSWithTheme = () => ({
-  fontSize: '32px',
+  fontSize: '2rem',
   fontWeight: 900,
   textTransform: 'uppercase',
   marginLeft: '18px',
@@ -114,7 +114,7 @@ export const ExamplesTitle: CSSWithTheme = () => ({
     content: '""',
     position: 'absolute',
     top: '35px',
-    left: '155px',
+    left: '9.6875rem',
     height: '10px',
     width: '10px',
     borderRight: '5px solid var(--typograghy-main)',
@@ -172,8 +172,8 @@ export const SettingsButton: CSSWithTheme = () => ({
 });
 
 export const SubmitButton: CSSWithTheme = () => ({
-  width: '106px',
-  height: '48px',
+  width: '6.625rem',
+  height: '3rem',
   background: '#5298e9',
   fontFamily: 'GreycliffCF',
   fontWeight: 700,
@@ -271,16 +271,16 @@ export const IconBox = (background: string): CSSWithTheme => () => ({
   borderRadius: '6px',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  height: '56px',
-  width: '56px',
+  height: '3.5rem',
+  width: '3.5rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 
   '& svg': {
     color: '#ffffff',
-    height: '32px',
-    width: '32px',
+    height: '2rem',
+    width: '2rem',
   },
 });
 
@@ -289,7 +289,7 @@ export const ResponseContainer: CSSWithTheme = () => ({
 });
 
 export const ResponseCard = (viewMore: boolean): CSSWithTheme => (theme) => ({
-  height: viewMore ? 'auto' : '263px',
+  height: viewMore ? 'auto' : '16.4375rem',
   boxSizing: 'border-box',
   backgroundColor: 'var(--background-main)',
   padding: '16px 32px',
@@ -313,7 +313,7 @@ export const ResponseCardRequestText = (viewMore: boolean): CSSWithTheme => () =
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
   maxWidth: '300px',
-  lineHeight: '24px',
+  lineHeight: '1.5rem',
 });
 
 export const ResponseCardResponseText = (viewMore: boolean): CSSWithTheme => () => ({
@@ -323,7 +323,7 @@ export const ResponseCardResponseText = (viewMore: boolean): CSSWithTheme => () 
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
   maxWidth: '300px',
-  lineHeight: '24px',
+  lineHeight: '1.5rem',
 });
 
 export const RequestRow: CSSWithTheme = () => ({
@@ -346,8 +346,8 @@ export const ViewMoreText: CSSWithTheme = () => ({
 export const ArrowIcon: CSSWithTheme = () => ({
   '& svg': {
     color: '#5298e9',
-    height: '32px',
-    width: '32px',
+    height: '2rem',
+    width: '2rem',
   },
 });
 
@@ -371,7 +371,7 @@ export const NotFoundContainer: CSSWithTheme = (theme) => ({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: '263px',
+  height: '16.4375rem',
 
   '& svg': {
     height: '15vw',
@@ -379,7 +379,7 @@ export const NotFoundContainer: CSSWithTheme = (theme) => ({
   },
 
   '& p': {
-    fontSize: '24px',
+    fontSize: '1.5rem',
     marginTop: '24px',
     fontFamily: 'GreycliffCF',
     fontWeight: 700,

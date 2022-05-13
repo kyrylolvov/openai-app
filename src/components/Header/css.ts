@@ -8,7 +8,7 @@ export const HeaderBox: CSSWithTheme = () => ({
 
 export const LogoText: CSSWithTheme = () => ({
   fontWeight: 900,
-  fontSize: '24px',
+  fontSize: '1.5rem',
   color: 'var(--typograghy-main)',
 });
 

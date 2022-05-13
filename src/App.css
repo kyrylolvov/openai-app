@@ -160,3 +160,33 @@ input[type='number'] {
 .MuiButton-root {
   padding-top: 8px !important;
 }
+
+@media only screen and (min-width: 1584px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1728px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1872px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (min-width: 2016px) {
+  html {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 2160px) {
+  html {
+    font-size: 26px;
+  }
+}
