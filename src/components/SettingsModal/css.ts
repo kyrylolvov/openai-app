@@ -110,7 +110,7 @@ export const Input: CSSWithTheme = () => ({
 });
 
 export const ButtonsContainer: CSSWithTheme = () => ({
-  marginTop: '24px',
+  marginTop: '48px',
   display: 'flex',
   justifyContent: 'center',
 });

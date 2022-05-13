@@ -46,8 +46,12 @@ const Main: React.FC = () => {
     localStorage.setItem('responses', JSON.stringify(responses));
   }, [responses]);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   return (
-    <Box css={css.MainContainer} data-theme={theme}>
+    <Box css={css.MainContainer}>
       <Box css={css.TopContainer}>
         <Box css={css.TopContainerInside}>
           <Header isDarkTheme={theme === 'dark'} switchTheme={switchTheme} />
@@ -65,7 +69,6 @@ const Main: React.FC = () => {
           setCurrentPrompt={setCurrentPrompt}
           fetchOpenAi={fetchOpenAi}
           scrollRef={scrollRef}
-          theme={theme}
         />
       </Box>
       <Typography css={css.Author}>

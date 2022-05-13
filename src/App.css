@@ -116,7 +116,11 @@ textarea::-webkit-scrollbar {
   }
 }
 
-.MuiBackdrop-root {
+:not(.MuiPopover-root).MuiModal-root .MuiBackdrop-root {
   background-color: var(--modal-shadow) !important;
   backdrop-filter: blur(3px);
+}
+
+.MuiPaper-root .MuiList-root {
+  background-color: var(--input-background);
 }

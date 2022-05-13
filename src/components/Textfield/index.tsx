@@ -23,13 +23,12 @@ interface TextFieldProps {
   fetchOpenAi: (payload: { prompt: string; engine?: string }) => void;
   fetchStatus: string;
   setCurrentPrompt: React.Dispatch<React.SetStateAction<string>>;
-  theme: string;
   responses: PromptResponse[];
   setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>
 }
 
 const TextField: React.FC<TextFieldProps> = ({
-  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses, theme, setResponses,
+  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses, setResponses,
 }) => {
   const requestText = useRef<HTMLSpanElement>(null);
   const requestResponse = useRef<HTMLSpanElement>(null);
@@ -224,7 +223,6 @@ const TextField: React.FC<TextFieldProps> = ({
         </Box>
       </Box>
       <SettingsModal
-        theme={theme}
         open={settingsModalOpen}
         onClose={() => setSettingsModalOpen(false)}
         setResponses={setResponses}

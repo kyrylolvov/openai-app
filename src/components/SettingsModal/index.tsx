@@ -13,14 +13,13 @@ import * as css from './css';
 interface SettingsModalProps {
   open: boolean;
   onClose: () => void;
-  theme: string;
   setResponses: React.Dispatch<React.SetStateAction<PromptResponse[]>>
 }
 
 const SettingsModal: React.FC<SettingsModalProps> = ({
-  open, onClose, theme, setResponses,
+  open, onClose, setResponses,
 }) => (
-  <Modal open={open} onClose={onClose} data-theme={theme}>
+  <Modal open={open} onClose={onClose}>
     <Box css={css.ModalContainer}>
       <Box css={css.CloseButtonContainer}>
         <IconButton onClick={onClose}>
