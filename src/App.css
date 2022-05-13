@@ -146,3 +146,7 @@ input[type='number'] {
 .MuiOutlinedInput-root.Mui-error.Mui-focused fieldset {
   border-color: #ff0c3e !important;
 }
+
+.MuiOutlinedInput-root:not(.Mui-error):not(.Mui-focused) fieldset {
+  border-color: #cfd4d9;
+}

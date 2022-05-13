@@ -13,6 +13,11 @@ export const ModalContainer: CSSWithTheme = (theme) => ({
 
   [theme.breakpoints.down('sm')]: {
     width: '80vw',
+    padding: '32px 16px',
+  },
+
+  [theme.breakpoints.down(400)]: {
+    width: '95vw',
   },
 });
 
@@ -65,10 +70,6 @@ export const EngineSelect: CSSWithTheme = () => ({
   '& svg': {
     color: 'var(--typograghy-main)',
   },
-
-  '& fieldset': {
-    borderColor: '#cfd4d9',
-  },
 });
 
 export const EngineMenuItem: CSSWithTheme = () => ({
@@ -106,10 +107,6 @@ export const Input: CSSWithTheme = () => ({
   backgroundColor: 'var(--input-background)',
   color: 'var(--typograghy-main)',
   height: '63px',
-
-  '& fieldset': {
-    borderColor: '#cfd4d9',
-  },
 });
 
 export const ButtonsContainer: CSSWithTheme = () => ({

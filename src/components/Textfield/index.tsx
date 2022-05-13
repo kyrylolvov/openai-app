@@ -20,7 +20,14 @@ import * as css from './css';
 
 interface TextFieldProps {
   scrollRef: React.RefObject<HTMLDivElement>;
-  fetchOpenAi: (payload: { prompt: string; engine?: string }) => void;
+  fetchOpenAi: (payload: {
+    prompt: string;
+    engine: string;
+    temperature: number;
+    maxTokens: number;
+    frequencyPenalty: number;
+    presencePenalty: number;
+  }) => void;
   fetchStatus: string;
   setCurrentPrompt: React.Dispatch<React.SetStateAction<string>>;
   responses: PromptResponse[];
@@ -79,7 +86,7 @@ const TextField: React.FC<TextFieldProps> = ({
     onSubmit: async (values) => {
       try {
         setCurrentPrompt(values.prompt);
-        fetchOpenAi({ prompt: values.prompt });
+        fetchOpenAi({ prompt: values.prompt, ...additionalSettings });
       } catch (err: any) {
         if (err.message) {
           toast.error(err.message);

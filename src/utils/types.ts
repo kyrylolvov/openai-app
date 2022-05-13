@@ -11,8 +11,8 @@ export interface OpenAICompletions {
 
 export interface AdditionalSettings {
   engine: string,
-  temperature: number | string,
-  maxTokens: number | string,
-  frequencyPenalty: number | string,
-  presencePenalty: number | string,
+  temperature: number,
+  maxTokens: number,
+  frequencyPenalty: number,
+  presencePenalty: number,
 }

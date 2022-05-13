@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import * as yup from 'yup';
@@ -15,6 +15,7 @@ import {
   OutlinedInput,
   Button,
   FormHelperText,
+  Tooltip,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
@@ -64,18 +65,18 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
       .required('This field is required'),
     frequencyPenalty: yup
       .number()
-      .min(1, 'Minimum value is 0')
+      .min(0, 'Minimum value is 0')
       .max(2, 'Maximum value is 2')
       .required('This field is required'),
-    presensePenalty: yup
+    presencePenalty: yup
       .number()
-      .min(1, 'Minimum value is 0')
+      .min(0, 'Minimum value is 0')
       .max(2, 'Maximum value is 2')
       .required('This field is required'),
   });
 
   const {
-    values, handleChange, handleSubmit, touched, errors,
+    values, handleChange, handleSubmit, touched, errors, resetForm,
   } = useFormik({
     initialValues,
     validationSchema,
@@ -98,6 +99,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     enableReinitialize: true,
   });
 
+  useEffect(() => {
+    resetForm();
+  }, [open]);
+
   return (
     <Modal open={open} onClose={onClose}>
       <Box css={css.ModalContainer}>
@@ -114,55 +119,61 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <InputLabel sx={{ color: 'var(--typograghy-main)' }} id="engine-label">
               Select engine
             </InputLabel>
-            <Select
-              labelId="engine-label"
-              label="Select engine"
-              css={css.EngineSelect}
-              name="engine"
-              onChange={handleChange}
-              value={values.engine}
-            >
-              {engines.map((engine) => (
-                <MenuItem key={engine.name} css={css.EngineMenuItem} value={engine.name}>
-                  <Typography variant="h2" css={css.EngineMenuItemTitle}>
-                    {engine.name}
-                  </Typography>
-                  <Typography css={css.EngineMenuItemSubTitle}>{engine.text}</Typography>
-                </MenuItem>
-              ))}
-            </Select>
+            <Tooltip title="The engine, which will generate the result of your prompt." placement="top" arrow>
+              <Select
+                labelId="engine-label"
+                label="Select engine"
+                css={css.EngineSelect}
+                name="engine"
+                onChange={handleChange}
+                value={values.engine}
+              >
+                {engines.map((engine) => (
+                  <MenuItem key={engine.name} css={css.EngineMenuItem} value={engine.name}>
+                    <Typography variant="h2" css={css.EngineMenuItemTitle}>
+                      {engine.name}
+                    </Typography>
+                    <Typography css={css.EngineMenuItemSubTitle}>{engine.text}</Typography>
+                  </MenuItem>
+                ))}
+              </Select>
+            </Tooltip>
           </FormControl>
           <Box css={css.InputRow}>
             <FormControl css={css.EngineSelectContol}>
               <InputLabel error={touched.temperature && !!errors.temperature} id="name-label">
                 Temperature
               </InputLabel>
-              <OutlinedInput
-                css={css.Input}
-                autoComplete="off"
-                label="Temperature"
-                error={touched.temperature && !!errors.temperature}
-                value={values.temperature}
-                name="temperature"
-                type="number"
-                onChange={handleChange}
-              />
+              <Tooltip title="Controls randomness. Low = less random completions" placement="top" arrow>
+                <OutlinedInput
+                  css={css.Input}
+                  autoComplete="off"
+                  label="Temperature"
+                  error={touched.temperature && !!errors.temperature}
+                  value={values.temperature}
+                  name="temperature"
+                  type="number"
+                  onChange={handleChange}
+                />
+              </Tooltip>
               {touched.temperature && !!errors.temperature && (
                 <FormHelperText style={{ color: '#FF0C3E' }}>{errors.temperature}</FormHelperText>
               )}
             </FormControl>
             <FormControl error={touched.maxTokens && !!errors.maxTokens} css={css.EngineSelectContol}>
               <InputLabel id="name-label">Maximum length</InputLabel>
-              <OutlinedInput
-                css={css.Input}
-                autoComplete="off"
-                label="Maximum length"
-                error={touched.maxTokens && !!errors.maxTokens}
-                value={values.maxTokens}
-                name="maxTokens"
-                type="number"
-                onChange={handleChange}
-              />
+              <Tooltip title="Maximum number of characters to generate" placement="top" arrow>
+                <OutlinedInput
+                  css={css.Input}
+                  autoComplete="off"
+                  label="Maximum length"
+                  error={touched.maxTokens && !!errors.maxTokens}
+                  value={values.maxTokens}
+                  name="maxTokens"
+                  type="number"
+                  onChange={handleChange}
+                />
+              </Tooltip>
               {touched.maxTokens && !!errors.maxTokens && (
                 <FormHelperText style={{ color: '#FF0C3E' }}>{errors.maxTokens}</FormHelperText>
               )}
@@ -174,16 +185,18 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               <InputLabel error={touched.frequencyPenalty && !!errors.frequencyPenalty} id="name-label">
                 Frequency penalty
               </InputLabel>
-              <OutlinedInput
-                css={css.Input}
-                autoComplete="off"
-                label="Frequency penalty"
-                error={touched.frequencyPenalty && !!errors.frequencyPenalty}
-                value={values.frequencyPenalty}
-                name="frequencyPenalty"
-                type="number"
-                onChange={handleChange}
-              />
+              <Tooltip title="Decreases engine's likehood to repeat answers" placement="top" arrow>
+                <OutlinedInput
+                  css={css.Input}
+                  autoComplete="off"
+                  label="Frequency penalty"
+                  error={touched.frequencyPenalty && !!errors.frequencyPenalty}
+                  value={values.frequencyPenalty}
+                  name="frequencyPenalty"
+                  type="number"
+                  onChange={handleChange}
+                />
+              </Tooltip>
               {touched.frequencyPenalty && !!errors.frequencyPenalty && (
                 <FormHelperText style={{ color: '#FF0C3E' }}>{errors.frequencyPenalty}</FormHelperText>
               )}
@@ -192,16 +205,18 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               <InputLabel error={touched.presencePenalty && !!errors.presencePenalty} id="name-label">
                 Presence penalty
               </InputLabel>
-              <OutlinedInput
-                css={css.Input}
-                autoComplete="off"
-                label="Presence penalty"
-                error={touched.presencePenalty && !!errors.presencePenalty}
-                value={values.presencePenalty}
-                name="presencePenalty"
-                type="number"
-                onChange={handleChange}
-              />
+              <Tooltip title="Increases number of topics engine raises" placement="top" arrow>
+                <OutlinedInput
+                  css={css.Input}
+                  autoComplete="off"
+                  label="Presence penalty"
+                  error={touched.presencePenalty && !!errors.presencePenalty}
+                  value={values.presencePenalty}
+                  name="presencePenalty"
+                  type="number"
+                  onChange={handleChange}
+                />
+              </Tooltip>
               {touched.presencePenalty && !!errors.presencePenalty && (
                 <FormHelperText style={{ color: '#FF0C3E' }}>{errors.presencePenalty}</FormHelperText>
               )}
