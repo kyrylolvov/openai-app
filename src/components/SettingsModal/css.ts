@@ -11,8 +11,8 @@ export const ModalContainer: CSSWithTheme = (theme) => ({
   top: '50%',
   left: '50%',
 
-  [theme.breakpoints.up(1440)]: {
-    width: '35vw',
+  [theme.breakpoints.up(1584)]: {
+    width: '40vw',
   },
 
   [theme.breakpoints.down('sm')]: {
@@ -25,7 +25,7 @@ export const ModalContainer: CSSWithTheme = (theme) => ({
   },
 });
 
-export const CloseButtonContainer: CSSWithTheme = () => ({
+export const CloseButtonContainer: CSSWithTheme = (theme) => ({
   display: 'flex',
   justifyContent: 'flex-end',
   margin: '-16px -16px auto auto',
@@ -34,8 +34,11 @@ export const CloseButtonContainer: CSSWithTheme = () => ({
     '& svg': {
       color: 'var(--typograghy-secondary)',
       height: '1.25rem',
-      width: '1.25rem',
     },
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    margin: '-16px auto auto auto',
   },
 });
 
@@ -111,6 +114,10 @@ export const Input: CSSWithTheme = (theme) => ({
   backgroundColor: 'var(--input-background)',
   color: 'var(--typograghy-main)',
   height: '63px',
+
+  [theme.breakpoints.down('sm')]: {
+    height: '3.9375rem',
+  },
 
   [theme.breakpoints.up(1440)]: {
     height: '3.5rem',

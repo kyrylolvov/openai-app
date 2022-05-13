@@ -101,6 +101,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
 
   useEffect(() => {
     resetForm();
+    document.body.style.overflow = open ? 'hidden' : 'auto';
+    document.body.style.position = open ? 'relative' : 'auto';
   }, [open]);
 
   return (
@@ -119,7 +121,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <InputLabel sx={{ color: 'var(--typograghy-main)' }} id="engine-label">
               Select engine
             </InputLabel>
-            <Tooltip title="The engine, which will generate the result of your prompt." placement="top" arrow>
+            <Tooltip title="The engine, which will generate the result of your prompt." placement="top" arrow enterTouchDelay={0} leaveTouchDelay={5000}>
               <Select
                 labelId="engine-label"
                 label="Select engine"
@@ -144,7 +146,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               <InputLabel error={touched.temperature && !!errors.temperature} id="name-label">
                 Temperature
               </InputLabel>
-              <Tooltip title="Controls randomness. Low = less random completions" placement="top" arrow>
+              <Tooltip title="Controls randomness. Low = less random completions" placement="top" arrow enterTouchDelay={0} leaveTouchDelay={5000}>
                 <OutlinedInput
                   css={css.Input}
                   autoComplete="off"
@@ -162,7 +164,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             </FormControl>
             <FormControl error={touched.maxTokens && !!errors.maxTokens} css={css.EngineSelectContol}>
               <InputLabel id="name-label">Maximum length</InputLabel>
-              <Tooltip title="Maximum number of characters to generate" placement="top" arrow>
+              <Tooltip title="Maximum number of characters to generate" placement="top" arrow enterTouchDelay={0} leaveTouchDelay={5000}>
                 <OutlinedInput
                   css={css.Input}
                   autoComplete="off"
@@ -185,7 +187,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               <InputLabel error={touched.frequencyPenalty && !!errors.frequencyPenalty} id="name-label">
                 Frequency penalty
               </InputLabel>
-              <Tooltip title="Decreases engine's likehood to repeat answers" placement="top" arrow>
+              <Tooltip title="Decreases engine's likehood to repeat answers" placement="top" arrow enterTouchDelay={0} leaveTouchDelay={5000}>
                 <OutlinedInput
                   css={css.Input}
                   autoComplete="off"
@@ -205,7 +207,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               <InputLabel error={touched.presencePenalty && !!errors.presencePenalty} id="name-label">
                 Presence penalty
               </InputLabel>
-              <Tooltip title="Increases number of topics engine raises" placement="top" arrow>
+              <Tooltip title="Increases number of topics engine raises" placement="top" arrow enterTouchDelay={0} leaveTouchDelay={5000}>
                 <OutlinedInput
                   css={css.Input}
                   autoComplete="off"

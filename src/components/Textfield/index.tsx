@@ -46,6 +46,7 @@ const TextField: React.FC<TextFieldProps> = ({
 
   const requestText = useRef<HTMLSpanElement>(null);
   const requestResponse = useRef<HTMLSpanElement>(null);
+  const responseContainer = useRef<HTMLDivElement>(null);
 
   const [settingsModalOpen, setSettingsModalOpen] = useState(false);
   const [requestTextViewMore, setRequestTextViewMore] = useState(false);
@@ -87,6 +88,7 @@ const TextField: React.FC<TextFieldProps> = ({
       try {
         setCurrentPrompt(values.prompt);
         fetchOpenAi({ prompt: values.prompt, ...additionalSettings });
+        if (window.innerWidth < 600) responseContainer?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })!;
       } catch (err: any) {
         if (err.message) {
           toast.error(err.message);
@@ -150,7 +152,7 @@ const TextField: React.FC<TextFieldProps> = ({
             </Box>
           </Box>
         </Box>
-        <Box css={css.ResponsesContainer}>
+        <Box css={css.ResponsesContainer} ref={responseContainer}>
           <Box css={css.ResponsesTextContainer}>
             <Typography variant="h2" css={css.ResponsesTitle}>
               Responses

@@ -71,6 +71,7 @@ html {
   margin: 0;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
+  touch-action: pan-y;
 }
 
 body {
@@ -159,6 +160,12 @@ input[type='number'] {
 
 .MuiButton-root {
   padding-top: 8px !important;
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (min-width: 1584px) {

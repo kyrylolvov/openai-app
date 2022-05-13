@@ -206,7 +206,8 @@ export const ExamplesContainer: CSSWithTheme = () => ({
 
 export const ResponsesContainer: CSSWithTheme = (theme) => ({
   [theme.breakpoints.down(1100)]: {
-    marginTop: '64px',
+    marginTop: '32px',
+    paddingTop: '32px',
   },
 });
 
@@ -303,6 +304,7 @@ export const ResponseCard = (viewMore: boolean): CSSWithTheme => (theme) => ({
 
   [theme.breakpoints.down('md')]: {
     width: '100%',
+    padding: '16px',
   },
 });
 
