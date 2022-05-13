@@ -50,6 +50,7 @@ export const EngineSelectContol: CSSWithTheme = () => ({
 
   '& .MuiInputLabel-root': {
     color: 'var(--typograghy-main)',
+
   },
 
   '& .MuiInputLabel-root.Mui-focused': {
@@ -59,6 +60,7 @@ export const EngineSelectContol: CSSWithTheme = () => ({
 
 export const EngineSelect: CSSWithTheme = () => ({
   backgroundColor: 'var(--input-background)',
+  height: '63px',
 
   '& svg': {
     color: 'var(--typograghy-main)',
@@ -103,6 +105,7 @@ export const InputRow: CSSWithTheme = (theme) => ({
 export const Input: CSSWithTheme = () => ({
   backgroundColor: 'var(--input-background)',
   color: 'var(--typograghy-main)',
+  height: '63px',
 
   '& fieldset': {
     borderColor: '#cfd4d9 !important',

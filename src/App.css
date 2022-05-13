@@ -124,3 +124,7 @@ textarea::-webkit-scrollbar {
 .MuiPaper-root .MuiList-root {
   background-color: var(--input-background);
 }
+
+:not(.Mui-focused):not(.MuiFormLabel-filled).MuiInputLabel-root {
+  transform: translate(14px, 20px) scale(1);
+}

@@ -14,7 +14,7 @@ import { ReactComponent as NotFound } from '../../assets/img/illustration/NotFou
 import SettingsModal from '../SettingsModal';
 
 import examples from '../../utils/examples';
-import { PromptResponse } from '../../utils/types';
+import { AdditionalSettings, PromptResponse } from '../../utils/types';
 
 import * as css from './css';
 
@@ -44,6 +44,14 @@ const TextField: React.FC<TextFieldProps> = ({
   const [responseTextHeight, setResponseHeight] = useState({
     scrollHeight: requestResponse?.current?.scrollHeight ?? 0,
     clientHeight: requestResponse?.current?.clientHeight ?? 0,
+  });
+
+  const [additionalSettings, setAdditionalSettings] = useState<AdditionalSettings>({
+    engine: 'text-davinci-002',
+    temperature: 0.5,
+    maxTokens: 64,
+    frequencyPenalty: 0,
+    presencePenalty: 0,
   });
 
   const initialValues = useMemo(
@@ -226,6 +234,8 @@ const TextField: React.FC<TextFieldProps> = ({
         open={settingsModalOpen}
         onClose={() => setSettingsModalOpen(false)}
         setResponses={setResponses}
+        additionalSettings={additionalSettings}
+        setAdditionalSettings={setAdditionalSettings}
       />
     </Box>
   );
