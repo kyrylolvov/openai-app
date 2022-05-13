@@ -162,6 +162,15 @@ export const ButtonBox: CSSWithTheme = () => ({
   justifyContent: 'flex-end',
 });
 
+export const SettingsButton: CSSWithTheme = () => ({
+  marginRight: '16px',
+  flexShrink: 0,
+
+  '& svg': {
+    color: 'var(--typograghy-secondary)',
+  },
+});
+
 export const SubmitButton: CSSWithTheme = () => ({
   width: '106px',
   height: '48px',

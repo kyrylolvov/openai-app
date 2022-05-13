@@ -34,7 +34,7 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     if (openAiState.status === 'FULFILLED' && !!currentPrompt.length) {
-      if (responses.find((x) => x.prompt === currentPrompt)) {
+      if (responses.find((x) => x.prompt === currentPrompt) && responses.find((x) => x.response === openAiState.data.choices[0].text)) {
         setResponses!((prev) => prev.filter((el) => el.prompt !== currentPrompt));
       }
       if (responses.length === 5) responses.slice(0, -1);
@@ -64,6 +64,7 @@ const Main: React.FC = () => {
           setCurrentPrompt={setCurrentPrompt}
           fetchOpenAi={fetchOpenAi}
           scrollRef={scrollRef}
+          theme={theme}
         />
       </Box>
       <Typography css={css.Author}>

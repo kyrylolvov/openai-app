@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleArrowLeft, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowLeft, faCircleArrowRight, faGear } from '@fortawesome/free-solid-svg-icons';
 
 import toast from 'react-hot-toast';
 import { ReactComponent as NotFound } from '../../assets/img/illustration/NotFound.svg';
@@ -16,21 +16,24 @@ import examples from '../../utils/examples';
 import { PromptResponse } from '../../utils/types';
 
 import * as css from './css';
+import SettingsModal from '../SettingsModal';
 
 interface TextFieldProps {
   scrollRef: React.RefObject<HTMLDivElement>;
   fetchOpenAi: (payload: { prompt: string; engine?: string }) => void;
   fetchStatus: string;
   setCurrentPrompt: React.Dispatch<React.SetStateAction<string>>;
+  theme: string;
   responses: PromptResponse[];
 }
 
 const TextField: React.FC<TextFieldProps> = ({
-  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses,
+  scrollRef, fetchOpenAi, fetchStatus, setCurrentPrompt, responses, theme,
 }) => {
   const requestText = useRef<HTMLSpanElement>(null);
   const requestResponse = useRef<HTMLSpanElement>(null);
 
+  const [settingsModalOpen, setSettingsModalOpen] = useState(true);
   const [requestTextViewMore, setRequestTextViewMore] = useState(false);
   const [responseTextViewMore, setResponseTextViewMore] = useState(false);
   const [currentResponseShown, setCurrentResponseShown] = useState(0);
@@ -102,13 +105,18 @@ const TextField: React.FC<TextFieldProps> = ({
               css={css.PromptInput}
             />
             <Box css={css.ButtonBox}>
-              <Button
-                onClick={() => handleSubmit()}
-                disabled={fetchStatus === 'IN_PROGRESS' || !values.prompt.trim().length}
-                css={css.SubmitButton}
-              >
-                {fetchStatus === 'IN_PROGRESS' ? <CircularProgress css={css.Progress} /> : <span>Submit</span>}
-              </Button>
+              <Box>
+                <IconButton onClick={() => setSettingsModalOpen(true)} css={css.SettingsButton}>
+                  <FontAwesomeIcon icon={faGear} />
+                </IconButton>
+                <Button
+                  onClick={() => handleSubmit()}
+                  disabled={fetchStatus === 'IN_PROGRESS' || !values.prompt.trim().length}
+                  css={css.SubmitButton}
+                >
+                  {fetchStatus === 'IN_PROGRESS' ? <CircularProgress css={css.Progress} /> : <span>Submit</span>}
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -214,6 +222,7 @@ const TextField: React.FC<TextFieldProps> = ({
           ))}
         </Box>
       </Box>
+      <SettingsModal theme={theme} open={settingsModalOpen} onClose={() => setSettingsModalOpen(false)} />
     </Box>
   );
 };
