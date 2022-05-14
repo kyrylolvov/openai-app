@@ -37,12 +37,12 @@ const Main: React.FC = () => {
       if (responses.find((x) => x.prompt === currentPrompt) && responses.find((x) => x.response === openAiState.data.choices[0].text)) {
         setResponses!((prev) => prev.filter((el) => el.prompt !== currentPrompt));
       }
-      if (responses.length === 5) responses.slice(0, -1);
       setResponses!((prev) => [{ prompt: currentPrompt, response: openAiState.data.choices[0].text }, ...prev]);
     }
   }, [openAiState.status]);
 
   useEffect(() => {
+    if (responses.length >= 10) { setResponses!((prev) => [...prev.slice(0, -1)]); }
     localStorage.setItem('responses', JSON.stringify(responses));
   }, [responses]);
 

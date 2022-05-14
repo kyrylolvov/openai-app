@@ -207,6 +207,8 @@ const TextField: React.FC<TextFieldProps> = ({
                   </Box>
                 </Box>
               </Box>
+              {responses.length > 1
+              && (
               <Box css={css.ArrowContainer}>
                 <IconButton
                   onClick={() => setCurrentResponseShown(
@@ -225,6 +227,7 @@ const TextField: React.FC<TextFieldProps> = ({
                   <FontAwesomeIcon icon={faCircleArrowRight} />
                 </IconButton>
               </Box>
+              )}
             </Box>
           )}
         </Box>
