@@ -19,7 +19,6 @@ const Header: React.FC<HeaderProps> = ({ isDarkTheme, switchTheme }) => (
     <Box css={css.SwitchContainer}>
       <LightMode />
       <Switch
-        aria-label="Theme Switch"
         checked={isDarkTheme}
         onClick={switchTheme}
         css={css.ThemeSwitch}
