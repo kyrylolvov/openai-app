@@ -23,6 +23,4 @@ React, Axios, OpenAI API, Material UI, Emotion
 
 ### Video Demo
 
-<img src="https://imgur.com/a/YSby0Gg">
-
-
+![Video](https://i.imgur.com/ae5MbPa.mp4)
