@@ -20,3 +20,9 @@ React, Axios, OpenAI API, Material UI, Emotion
 ### Link
 
 [Project Demo](https://fun-with-ai-kyrylolvov.vercel.app)
+
+### Video Demo
+
+
+https://user-images.githubusercontent.com/70720713/168426283-33c4f593-2b7f-4274-9262-5ee5f0373e3e.mov
+
