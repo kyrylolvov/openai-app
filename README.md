@@ -2,7 +2,7 @@
 
 An API powered web application to communicate with OpenAI, get interesting and funny responses. The app is a part of Shopify's Developer Challenge
 
-![Preview](https://user-images.githubusercontent.com/70720713/168427212-e55024b6-764c-4755-80ca-c524b6641564.svg)
+![Preview](https://user-images.githubusercontent.com/70720713/168427231-7a2b96a3-35d8-457c-b766-950643075824.png)
 
 ### Description
 
