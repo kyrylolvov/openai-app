@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable @typescript-eslint/no-shadow */
 import React, {
   useMemo, useRef, useState, useEffect,
@@ -123,12 +124,14 @@ const TextField: React.FC<TextFieldProps> = ({
     <Box>
       <Box css={css.TextfieldBox}>
         <Box css={css.RequestContainer}>
-          <Typography variant="h2" id="promptLabel" css={css.TextfieldTitle}>
-            Enter prompt
-          </Typography>
+          <label htmlFor="prompt-input">
+            <Typography variant="h2" css={css.TextfieldTitle}>
+              Enter prompt
+            </Typography>
+          </label>
           <Box css={css.PromptBox}>
             <OutlinedInput
-              aria-labelledby="promptLabel"
+              id="prompt-input"
               value={values.prompt}
               minRows={10}
               maxRows={30}
