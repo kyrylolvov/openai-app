@@ -162,12 +162,6 @@ input[type='number'] {
   padding-top: 8px !important;
 }
 
-@media only screen and (max-width: 500px) {
-  html {
-    font-size: 14px;
-  }
-}
-
 @media only screen and (min-width: 1584px) {
   html {
     font-size: 18px;
