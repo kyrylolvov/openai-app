@@ -142,7 +142,7 @@ const TextField: React.FC<TextFieldProps> = ({
             />
             <Box css={css.ButtonBox}>
               <Box>
-                <IconButton name="AI Settings" onClick={() => setSettingsModalOpen(true)} css={css.SettingsButton}>
+                <IconButton aria-label="AI Settings" onClick={() => setSettingsModalOpen(true)} css={css.SettingsButton}>
                   <FontAwesomeIcon icon={faGear} />
                 </IconButton>
                 <Button
