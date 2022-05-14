@@ -11,9 +11,9 @@ The creation of this web application involved research on OpenAI API, which allo
 ### Featues
 
 - Storing ten last searches of user (can be easily increased) and automatically deleting duplicate
+- In-depth configuration of AI prompts and storage of saved configuration
+- Lighthouse Accessibility, Performance and Practices Audit Green Score
 - List of predefined prompts
-- In-depth configuration of AI prompts
-- Green Lighthouse Accessibility, Performance and Practices Audit Score
 - Dark theme
 
 ### Technolgies Used
