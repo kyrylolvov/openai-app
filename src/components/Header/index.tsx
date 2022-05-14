@@ -22,6 +22,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkTheme, switchTheme }) => (
         checked={isDarkTheme}
         onClick={switchTheme}
         css={css.ThemeSwitch}
+        inputProps={{ 'aria-label': 'Theme Switch' }}
       />
       <DarkMode />
     </Box>
