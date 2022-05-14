@@ -1,6 +1,6 @@
 ## 🤖 OpenAI App
 
-An API powered web application to communicate with OpenAI, get interesting and funny responses
+An API powered web application to communicate with OpenAI, get interesting and funny responses. The app is a part of Shopify's Developer Challenge
 
 ### Description
 
