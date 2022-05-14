@@ -16,3 +16,7 @@ The creation of this web application involved research on OpenAI API, which allo
 ### Technolgies Used
 
 React, Axios, OpenAI API, Material UI, Emotion
+
+### Link
+
+[Project Demo](https://fun-with-ai-kyrylolvov.vercel.app)
