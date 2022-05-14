@@ -17,8 +17,13 @@ const Header: React.FC<HeaderProps> = ({ isDarkTheme, switchTheme }) => (
       <Typography css={css.LogoText} variant="h2">OpenAI App</Typography>
     </Box>
     <Box css={css.SwitchContainer}>
-      <LightMode />
-      <Switch checked={isDarkTheme} onClick={switchTheme} css={css.ThemeSwitch} />
+      <LightMode id="switchLabel" />
+      <Switch
+        aria-labelledby="switchLabel"
+        checked={isDarkTheme}
+        onClick={switchTheme}
+        css={css.ThemeSwitch}
+      />
       <DarkMode />
     </Box>
   </Box>

@@ -123,11 +123,12 @@ const TextField: React.FC<TextFieldProps> = ({
     <Box>
       <Box css={css.TextfieldBox}>
         <Box css={css.RequestContainer}>
-          <Typography variant="h2" css={css.TextfieldTitle}>
+          <Typography variant="h2" id="promptLabel" css={css.TextfieldTitle}>
             Enter prompt
           </Typography>
           <Box css={css.PromptBox}>
             <OutlinedInput
+              aria-labelledby="promptLabel"
               value={values.prompt}
               minRows={10}
               maxRows={30}
@@ -138,7 +139,7 @@ const TextField: React.FC<TextFieldProps> = ({
             />
             <Box css={css.ButtonBox}>
               <Box>
-                <IconButton onClick={() => setSettingsModalOpen(true)} css={css.SettingsButton}>
+                <IconButton name="AI Settings" onClick={() => setSettingsModalOpen(true)} css={css.SettingsButton}>
                   <FontAwesomeIcon icon={faGear} />
                 </IconButton>
                 <Button
